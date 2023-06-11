@@ -7,16 +7,12 @@ fi
 
 package_install(){
     # Installing Metasploit
-    apt update
-    apt install build-essential libreadline-dev libssl-dev libpq5 libpq-dev libreadline5 libsqlite3-dev libpcap-dev openjdk-11-jdk git autoconf postgresql pgadmin3 zlib1g-dev libxml2-dev libxslt1-dev libyaml-dev curl ruby-dev nmap -y
-    cd /usr/local/bin
-    git clone https://github.com/rapid7/metasploit-framework.git
-    cd metasploit-framework
-    sudo gem install bundler
-    bundle install
-    sudo service postgresql start
-    sudo msfdb init
-    sudo msfdb start
+	apt update 
+	apt install gpgv2 autoconf bison build-essential postgresql libaprutil1 libgmp3-dev libpcap-dev openssl libpq-dev libreadline6-dev libsqlite3-dev libssl-dev locate libsvn1 libtool libxml2 libxml2-dev libxslt-dev wget libyaml-dev ncurses-dev  postgresql-contrib xsel zlib1g zlib1g-dev -y
+	cd /tmp/
+	wget -qO- https://raw.githubusercontent.com/rapid7/metasploit-omnibus/master/config/templates/metasploit-framework-wrappers/msfupdate.erb > msfinstall
+	chmod 755 msfinstall
+	./msfinstall
 }
 
 package_install
