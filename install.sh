@@ -16,3 +16,4 @@ package_install(){
   sudo msfdb start
 
 }
+package_install
