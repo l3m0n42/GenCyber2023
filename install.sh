@@ -15,6 +15,8 @@ package_install(){
 	./msfinstall
       # Installing Networking Tools
       	apt install nmap tcpdump iputils-ping netdiscover openssh-server -y
+      # Installing Docker
+     	for pkg in docker.io docker-doc docker-compose containerd runc; do sudo apt-get remove $pkg; done
 }
 
 package_install
