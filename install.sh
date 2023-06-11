@@ -17,9 +17,18 @@ package_install(){
       	apt install nmap tcpdump iputils-ping netdiscover openssh-server -y
       # Installing Docker
      	apt install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
-      # Install VSFTPD
-      	apt install libssl-dev libpam0g-dev libcap-dev libwrap0-dev libreadline-dev libpam-pwdfile -y
 
 }
+adding_users(){
+      # Create three users
+	useradd -m student1
+	useradd -m student2
+	useradd -m student3
 
+      # Set passwords for the users
+	echo "student1:gencyber" | chpasswd
+	echo "student2:gencyber" | chpasswd
+	echo "student3:gencyber" | chpasswd
+}
+adding_users
 package_install
