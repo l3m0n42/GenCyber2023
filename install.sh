@@ -17,6 +17,9 @@ package_install(){
       	apt install nmap tcpdump iputils-ping netdiscover openssh-server -y
       # Installing Docker
      	apt install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
+	cd /home/
+	wget https://raw.githubusercontent.com/l3m0n42/GenCyber2023/main/docker-compose.yaml
+	wget https://raw.githubusercontent.com/l3m0n42/GenCyber2023/main/zapfix.sh
 
 }
 adding_users(){
