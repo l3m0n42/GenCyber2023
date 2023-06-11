@@ -1,0 +1,32 @@
+services:
+  zapgui:
+    hostname: zapgui
+    container_name: zapgui
+    image: owasp/zap2docker-stable:latest
+    command: zap-webswing.sh
+    ports:
+      - "8080:8080"
+      - "8090:8090"
+    volumes: 
+      - ./zap_reports:/home/zap/:rw
+      - ./zap_wrk:/zap/wrk:rw
+    networks:
+      zapnet:
+        ipv4_address: 192.168.1.100
+  
+  juiceshop:
+    hostname: juiceshop
+    container_name: juiceshop
+    image: bkimminich/juice-shop:latest
+    ports:
+      - "3000:3000"
+    networks:
+      zapnet:
+        ipv4_address: 192.168.1.101
+
+networks:
+  zapnet:
+    driver: bridge
+    ipam:
+      config:
+        - subnet: "192.168.1.0/24"
