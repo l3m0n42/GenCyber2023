@@ -16,7 +16,7 @@ package_install(){
       # Installing Networking Tools
       	apt install nmap tcpdump iputils-ping netdiscover openssh-server -y
       # Installing Docker
-     	for pkg in docker.io docker-doc docker-compose containerd runc; do sudo apt-get remove $pkg; done
+     	apt install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
 }
 
 package_install
