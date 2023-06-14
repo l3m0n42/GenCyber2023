@@ -7,7 +7,7 @@ fi
 vas_installer(){
   mkdir /home/pi/VulnAnalysis
   cd /home/pi/VulnAnalysis
-  apt install curl -y
+  apt install curl docker-compose -y
   curl -f -O https://raw.githubusercontent.com/l3m0n42/GenCyber2023/main/setup-and-start-greenbone-community-edition.sh && chmod u+x setup-and-start-greenbone-community-edition.sh
   ./setup-and-start-greenbone-community-edition.sh 22.4
 }
