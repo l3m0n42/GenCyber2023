@@ -5,9 +5,11 @@ if [ "$EUID" -ne 0 ]; then
         exit 1
 fi
 vas_installer(){
+  apt update
+  pip3 install docker-compsoe
   mkdir /home/pi/VulnAnalysis
   cd /home/pi/VulnAnalysis
-  apt install curl docker-compose -y
+  apt install curl -y
   curl -f -O https://raw.githubusercontent.com/l3m0n42/GenCyber2023/main/setup-and-start-greenbone-community-edition.sh && chmod u+x setup-and-start-greenbone-community-edition.sh
   ./setup-and-start-greenbone-community-edition.sh 22.4
 }
