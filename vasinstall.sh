@@ -2,6 +2,7 @@
 vas_installer(){
   sudo apt update
   sudo pip3 install docker-compsoe
+  ln -s /usr/local/bin/docker-compose /bin/docker-compose
   mkdir /home/pi/VulnAnalysis
   cd /home/pi/VulnAnalysis
   apt install curl -y
